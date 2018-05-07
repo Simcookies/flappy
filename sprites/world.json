@@ -1,0 +1,61 @@
+{
+  "imageURL": "/img/sprites.png",
+  "tiles": [
+    {
+      "name": "background",
+      "index": [
+        0, 0,
+        143, 256
+      ]
+    },
+    {
+      "name": "star",
+      "index": [
+        279, 118,
+        16, 16
+      ]
+    },
+    {
+      "name": "pipe-insert-vert-left",
+      "index": [
+        330, 0,
+        16, 16
+      ]
+    },
+    {
+      "name": "pipe-insert-vert-right",
+      "index": [
+        346, 0,
+        12, 16
+      ]
+    },
+    {
+      "name": "pipe-insert-vert-left-mirror",
+      "index": [
+        302, 120,
+        16, 16
+      ]
+    },
+    {
+      "name": "pipe-insert-vert-right-mirror",
+      "index": [
+        318, 120,
+        12, 18
+      ]
+    },
+    {
+      "name": "pipe-vert-left",
+      "index": [
+        330, 16,
+        16, 16
+      ]
+    },
+    {
+      "name": "pipe-vert-right",
+      "index": [
+        346, 16,
+        12, 16
+      ]
+    }
+  ]
+}

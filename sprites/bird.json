@@ -1,0 +1,12 @@
+{
+  "imageURL": "/img/sprites.png",
+  "frames": [
+    {
+      "name": "idle",
+      "rect": [
+        264, 64,
+        16, 16
+      ]
+    }
+  ]
+}
