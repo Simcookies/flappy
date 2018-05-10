@@ -83,5 +83,7 @@ async function main(canvas) {
   timer.start();
 }
 
-const canvas = document.getElementById('screen');
-main(canvas);
+window.onload = function() {
+  const canvas = document.getElementById('screen');
+  main(canvas);
+}
