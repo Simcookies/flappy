@@ -1,4 +1,4 @@
-import Keyboard from './KeyboardState.js';
+import Keyboard from './KeyBoardState.js';
 
 export function setupKeyboard(bird, timer) {
   const input = new Keyboard();
