@@ -1,11 +1,28 @@
 {
-  "imageURL": "/img/sprites.png",
+  "imageURL": "/img/chick.png",
   "frames": [
     {
-      "name": "idle",
+      "name": "idle-m",
       "rect": [
-        264, 64,
-        16, 16
+        0, 0,
+        160, 123,
+        16, 12
+      ]
+    },
+    {
+      "name": "idle-s",
+      "rect": [
+        0, 0,
+        160, 123,
+        12, 9
+      ]
+    },
+    {
+      "name": "idle-l",
+      "rect": [
+        0, 0,
+        160, 123,
+        20, 15
       ]
     }
   ]

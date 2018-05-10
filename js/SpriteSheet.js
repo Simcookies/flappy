@@ -6,11 +6,11 @@ export default class SpriteSheet {
     this.tiles = new Map();
   }
 
-  define(name, x, y, width, height) {
+  define(name, x, y, width, height, sWidth, sHeight) {
     const buffers = [false, true].map(flip => {
       const buffer = document.createElement('canvas');
-      buffer.width = width;
-      buffer.height = height;
+      buffer.width = sWidth || width;
+      buffer.height = sHeight || height;
       const context = buffer.getContext('2d');
 
       if (flip) {
@@ -23,7 +23,7 @@ export default class SpriteSheet {
         x, y,
         width, height,
         0, 0,
-        width, height
+        sWidth || width, sHeight || height
       );
       return buffer;
     });

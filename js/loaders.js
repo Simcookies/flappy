@@ -26,11 +26,7 @@ export function loadSpriteSheet(name) {
 
     if (sheetSpec.tiles) {
       sheetSpec.tiles.forEach(tileSpec => {
-        if (tileSpec.index.length == 4) {
-          sprites.define(tileSpec.name, ...tileSpec.index);
-        } else if (tileSpec.index.length == 2) {
-          sprites.defineTile(tileSpec.name, ...tileSpec.index);
-        }
+        sprites.define(tileSpec.name, ...tileSpec.index);
       });
     }
 

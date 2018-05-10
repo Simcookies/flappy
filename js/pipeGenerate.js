@@ -9,7 +9,7 @@ export function pipeGenerate() {
     PIPE_RANGES.push(x);
 
     const edgeUp = 2 + Math.floor(Math.random() * 4);
-    const edgeDown = edgeUp + 8;
+    const edgeDown = edgeUp + Math.floor(Math.random() * 2) + 7;
     rangesDown.push([x, edgeDown]);
     rangesUp.push([x, edgeUp]);
 

@@ -5,20 +5,25 @@ import Solid from '../traits/Solid.js';
 import Killable from '../traits/Killable.js';
 import {loadSpriteSheet} from '../loaders.js';
 
-export function loadBird() {
+export function loadBird(size) {
   return loadSpriteSheet('bird')
-  .then(createBirdFactory);
+  .then(sprite => createBirdFactory(sprite, size));
 }
 
-function createBirdFactory(sprite) {
+function createBirdFactory(sprite, size = 'm') {
 
   function drawBird(context) {
-    sprite.draw('idle', context ,0, 0);
+    sprite.draw(`idle-${size}`, context ,0, 0);
   }
+
+  const tile = sprite.tiles.get(`idle-${size}`)[0];
+  const height = tile.height;
+  const width = tile.width;
 
   return function createBird() {
     const bird = new Entity();
-    bird.size.set(16, 12);
+    bird.size.set(width, height);
+    bird.SIZE = size;
     bird.vel.x = 60;
     bird.vel.y = -120;
 

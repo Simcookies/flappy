@@ -9,3 +9,13 @@ export function setupKeyboard(bird, timer) {
 
   return input;
 }
+
+export function setupBeginKey() {
+  const input = new Keyboard();
+
+  input.addMapping('Space', keyState => {
+    window.location.href = 'game.html';
+  });
+
+  return input;
+}

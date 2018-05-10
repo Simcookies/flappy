@@ -59,17 +59,25 @@ async function main(canvas) {
 
   document.addEventListener('birdDead', e => {
     timer.pause();
-    alert('Oh! You failed!');
+    if (bird.SIZE == 'l') {
+      alert('Oh! You failed!\nYou are too fat!\nYou need more trainning!');
+    } else if (bird.SIZE == 'm') {
+      alert('Oh! You failed!\nGet used to control the chick.');
+    } else if (bird.SIZE == 's') {
+      alert('Oh! You failed!\nYou are too slim!\nMaybe you need eat more!')
+    }
+
     if (confirm('Do you want to try again?')) {
       window.location.reload();
     } else {
       timer.pause();
+      window.location.href = "index.html";
     }
   });
 
   document.addEventListener('birdWin', e => {
     timer.pause();
-    alert('Conguration! You won!');
+    window.location.href = "win.html";
   });
 
   timer.start();

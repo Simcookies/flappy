@@ -7,8 +7,10 @@ export function loadEntities() {
     return factory => entityFactories[name] = factory;
   }
 
+  const size = localStorage.getItem('birdSize') || 'm';
+
   return Promise.all([
-    loadBird().then(addAs('bird')),
+    loadBird(size).then(addAs('bird')),
   ])
   .then(() => entityFactories);
 }
