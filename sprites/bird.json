@@ -1,5 +1,5 @@
 {
-  "imageURL": "/img/chick.png",
+  "imageURL": "./img/chick.png",
   "frames": [
     {
       "name": "idle-m",
