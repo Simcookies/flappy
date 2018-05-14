@@ -47,8 +47,8 @@ async function main(canvas) {
 
   level.comp.layers.push(createDashboardLayer(font, playerEnv));
 
-  const timer = new Timer(1/60);
-  const input = setupKeyboard(bird, timer);
+  const timer = new Timer(1/60,bird);
+  const input = setupKeyboard(playerEnv, timer);
   input.listenTo(window);
 
   timer.update = function update(deltaTime) {
@@ -59,25 +59,10 @@ async function main(canvas) {
 
   document.addEventListener('birdDead', e => {
     timer.pause();
-    if (bird.SIZE == 'l') {
-      alert('Oh! You failed!\nYou are too fat!\nYou need more trainning!');
-    } else if (bird.SIZE == 'm') {
-      alert('Oh! You failed!\nGet used to control the chick.');
-    } else if (bird.SIZE == 's') {
-      alert('Oh! You failed!\nYou are too slim!\nMaybe you need eat more!')
-    }
-
-    if (confirm('Do you want to try again?')) {
-      window.location.reload();
-    } else {
-      timer.pause();
-      window.location.href = "index.html";
-    }
   });
 
   document.addEventListener('birdWin', e => {
     timer.pause();
-    window.location.href = "win.html";
   });
 
   timer.start();

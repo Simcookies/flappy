@@ -3,6 +3,7 @@ import {Vec2} from '../math.js';
 import {PIPE_RANGES} from '../pipeGenerate.js';
 
 const eventWin = new Event('birdWin');
+export const WIN = 1;
 
 export default class PlayerController extends Trait {
   constructor() {
@@ -30,7 +31,7 @@ export default class PlayerController extends Trait {
         PIPE_RANGES.shift();
       }
 
-      if (this.score > 10) {
+      if (this.score > WIN) {
         document.dispatchEvent(eventWin);
       }
     }

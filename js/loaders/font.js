@@ -7,12 +7,20 @@ class Font {
   constructor(sprites, size) {
     this.sprites = sprites;
     this.size = size;
+    this.lineHeight = 16;
   }
 
   print(text, context, x, y) {
     [...text].forEach((char, pos) => {
       this.sprites.draw(char, context, x + pos * this.size, y);
     });
+  }
+
+  printLines(texts, context, x, y) {
+    texts.split('\n').forEach(text => {
+      this.print(text, context, x, y);
+      y += this.lineHeight;
+    })
   }
 }
 

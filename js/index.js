@@ -21,13 +21,16 @@ function drawDashbord(context, sprites, font) {
 
   const LINE1 = 40;
   const LINE2 = 124;
-  font.print('The chick was lost in city.', context, 16, LINE1);
-  font.print('Help him return back home.', context, 16, LINE1 + 16);
-  font.print('But please pay attention to', context, 16, LINE1 + 32);
-  font.print('the PIPES.', context, 90, LINE1 + 48);
+  font.printLines(`The chick was lost in city.
+Help him return back home.
+But please pay attention to
+the PIPES.`,
+  context, 16, LINE1);
 
-  font.print('Press SPACE to start game and', context, 16, LINE2);
-  font.print('control the bird to fly.', context, 16, LINE2 + 16);
+  font.printLines(`Press SPACE to start game and
+control the bird to fly.`,
+  context, 16, LINE2);
+
   font.print('Use SML to change chick\'s weight.', context, 10, LINE2 + 80);
 }
 

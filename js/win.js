@@ -8,7 +8,6 @@ async function main(canvas) {
     loadSpriteSheet('world'),
     loadSpriteSheet('bird')
   ]);
-  alert('Conguration! You won!');
 
   sprites.draw("background", context, 0, 0);
   sprites.draw("background", context, 143, 0);
@@ -17,7 +16,6 @@ async function main(canvas) {
     const x = Math.floor(Math.random() * 270);
     const y = Math.floor(Math.random() * 120) + 100;
     const size = ['s', 'm', 'l'][Math.floor(Math.random()*3)];
-    console.log(size);
     birdSprite.draw(`idle-${size}`, context, x, y);
   }
 
