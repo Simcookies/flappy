@@ -3,12 +3,20 @@ import TileCollider from './TileCollider.js';
 import EntityCollider from './EntityCollider.js';
 import {Matrix} from './math.js';
 
+const size = localStorage.getItem('birdSize') || 'm';
+
 export default class Level {
   constructor() {
     this.entities = new Set();
     this.comp = new Compositor();
     this.tiles = new Matrix();
-    this.gravity = 400;
+    if (size == 's') {
+      this.gravity = 250;
+    } else if (size == 'l') {
+      this.gravity = 550;
+    } else {
+      this.gravity = 400;
+    }
 
     this.tileCollider = null;
     this.entitiesCollisder = new EntityCollider(this.entities);
