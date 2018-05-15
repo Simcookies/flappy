@@ -19,7 +19,7 @@ export function createDashboardLayer(font, playerEnv) {
 
     if (player.killable.dead) {
       if (player.SIZE == 'l') {
-        font.printLines('Oh! You failed!\nYou are too fat!\nYou need more trainning!\
+        font.printLines('Oh! You failed!\nYou are too fat!\nYou need more training!\
           \nPress Enter to player again,\
            Esc to return.',
           context, 16, 80);
