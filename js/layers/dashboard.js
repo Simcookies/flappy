@@ -29,7 +29,7 @@ export function createDashboardLayer(font, playerEnv) {
           \nEsc to return.',
           context, 16, 80);
       } else if (player.SIZE == 's') {
-        font.printLines('Oh! You failed!\nYou are too slim!\nMaybe you need eat more!\
+        font.printLines('Oh! You failed!\nYou are too slim!\nMaybe you need to eat more!\
           \nPress Enter to player again, Esc to return,\
           \nEsc to return.',
           context, 16, 80);
