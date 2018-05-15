@@ -20,7 +20,7 @@ async function main(canvas) {
   }
 
   const LINE1 = 40;
-  font.print('Congulations!', context, 90, LINE1);
+  font.print('Congratulations!', context, 90, LINE1);
   font.print('The chick comes back home,', context, 16, LINE1 + 16);
   font.print('and so many chicks are', context, 16, LINE1 + 32);
   font.print('flying together!', context, 16, LINE1 + 48);

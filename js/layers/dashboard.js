@@ -37,7 +37,7 @@ export function createDashboardLayer(font, playerEnv) {
     }
 
     if (playerEnv.playerController.score > WIN) {
-      font.printLines('Congulations! You won!\nPress Enter to continue.', context, 30, 96);
+      font.printLines('Congratulations! You won!\nPress Enter to continue.', context, 30, 96);
     }
   };
 };
