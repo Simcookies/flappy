@@ -5,10 +5,12 @@ export default class Go extends Trait {
     super('go');
     this.ready = false;
     this.time = 0;
+    this.sxf = new Audio('./audio/jumping-sfx.wav');
   }
 
   jump() {
     this.ready = true;
+    this.sxf.play();
   }
 
   update(entity, deltaTime) {

@@ -68,6 +68,10 @@ async function main(canvas) {
   timer.start();
 }
 
+const backgroundMusic = new Audio('./audio/background-music.mp3');
+backgroundMusic.loop = true;
+backgroundMusic.play();
+
 window.onload = function() {
   const canvas = document.getElementById('screen');
   main(canvas);
