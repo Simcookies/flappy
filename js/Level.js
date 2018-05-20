@@ -8,6 +8,7 @@ const size = localStorage.getItem('birdSize') || 'm';
 export default class Level {
   constructor() {
     this.entities = new Set();
+    this.musics = null;
     this.comp = new Compositor();
     this.tiles = new Matrix();
     if (size == 's') {

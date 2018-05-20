@@ -10,12 +10,12 @@ export default class Go extends Trait {
 
   jump() {
     this.ready = true;
-    this.sxf.play();
   }
 
-  update(entity, deltaTime) {
+  update(entity, deltaTime, level) {
     if (this.ready) {
       entity.vel.y = -120;
+      level.musics.jumping.play();
       this.ready = false;
     }
   }

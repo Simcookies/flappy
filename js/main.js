@@ -11,6 +11,7 @@ import {setupKeyboard} from './input.js';
 import {setupMouseControl} from './debug.js';
 import {createLevelLoader} from './loaders/level.js';
 import {loadFont} from './loaders/font.js';
+import {loadMusic} from './loaders/music.js';
 
 function createPlayerEnv(playerEntity) {
   const playerEnv = new Entity();
@@ -24,9 +25,10 @@ function createPlayerEnv(playerEntity) {
 async function main(canvas) {
   const context = canvas.getContext('2d');
 
-  const [entityFactory, font] = await Promise.all([
+  const [entityFactory, font, musics] = await Promise.all([
     loadEntities(),
-    loadFont()
+    loadFont(),
+    loadMusic()
   ]);
 
   const loadLevel = await createLevelLoader(entityFactory);
@@ -35,6 +37,7 @@ async function main(canvas) {
   const bird = entityFactory.bird();
   const playerEnv = createPlayerEnv(bird);
   level.entities.add(playerEnv);
+  level.musics = musics;
 
   const camera = new Camera();
 
@@ -59,18 +62,17 @@ async function main(canvas) {
 
   document.addEventListener('birdDead', e => {
     timer.pause();
+    level.musics.backgroundMusic.pause();
   });
 
   document.addEventListener('birdWin', e => {
     timer.pause();
+    level.musics.backgroundMusic.pause();
   });
 
   timer.start();
+  level.musics.backgroundMusic.play();
 }
-
-const backgroundMusic = new Audio('./audio/background-music.mp3');
-backgroundMusic.loop = true;
-backgroundMusic.play();
 
 window.onload = function() {
   const canvas = document.getElementById('screen');
