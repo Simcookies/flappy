@@ -23,13 +23,12 @@ function createPlayerEnv(playerEntity) {
   return playerEnv;
 }
 
-async function main(canvas) {
+async function main(canvas, musics) {
   const context = canvas.getContext('2d');
 
-  const [entityFactory, font, musics] = await Promise.all([
+  const [entityFactory, font] = await Promise.all([
     loadEntities(),
-    loadFont(),
-    loadMusic()
+    loadFont()
   ]);
 
   const loadLevel = await createLevelLoader(entityFactory);
@@ -49,12 +48,12 @@ async function main(canvas) {
   //   createCameraLayer(camera),
   // );
 
-  level.comp.layers.push(createDashboardLayer(font, playerEnv));
   const timer = new Timer(1/60, level);
-  // this layer has to be last one
-  level.comp.layers.push(createMessageLayer(font, timer, playerEnv));
   const input = setupKeyboard(playerEnv, timer, level);
   input.listenTo(window);
+
+  level.comp.layers.push(createDashboardLayer(font, playerEnv));
+  level.comp.layers.push(createMessageLayer(font, timer, playerEnv));
 
   timer.update = function update(deltaTime) {
     level.update(deltaTime);
@@ -64,6 +63,7 @@ async function main(canvas) {
 
   document.addEventListener('birdDead', e => {
     timer.stop();
+    level.musics.gameOver.play();
   });
 
   document.addEventListener('birdWin', e => {
@@ -74,6 +74,8 @@ async function main(canvas) {
 }
 
 window.onload = function() {
-  const canvas = document.getElementById('screen');
-  main(canvas);
+  loadMusic().then((musics) => {
+    const canvas = document.getElementById('screen');
+    main(canvas, musics);
+  });
 }

@@ -10,8 +10,9 @@ export function loadBird(size) {
   .then(sprite => createBirdFactory(sprite, size));
 }
 
-function createBirdFactory(sprite, size = 'm') {
+function createBirdFactory(sprite) {
 
+  const size = localStorage.getItem('birdSize') || 'm';
   function drawBird(context) {
     sprite.draw(`idle-${size}`, context ,0, 0);
   }
@@ -23,7 +24,6 @@ function createBirdFactory(sprite, size = 'm') {
   return function createBird() {
     const bird = new Entity();
     bird.size.set(width, height);
-    bird.SIZE = size;
     bird.vel.x = 60;
     bird.vel.y = -120;
 
