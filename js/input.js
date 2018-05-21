@@ -1,46 +1,35 @@
 import Keyboard from './KeyBoardState.js';
-import {WIN} from './traits/PlayerController.js';
+import {Status} from './Timer.js';
 
 export function setupKeyboard(playerEnv, timer) {
   const input = new Keyboard();
   const bird = playerEnv.playerController.player;
 
-  input.addMapping('Space', keyState => {
+  input.addMapping('Space', () => {
+    if (timer.state.status === Status.READY) {
+      timer.start();
+    }
     bird.go.jump();
   });
 
-  input.addMapping('KeyS', keyState => {
-    timer.pause();
+  input.addMapping('KeyS', () => {
+    if (timer.state.status === Status.RUNNING) {
+      timer.pause();
+    } else if (timer.state.status === Status.PAUSED) {
+      timer.resume();
+    }
   });
 
-  input.addMapping('KeyD', keyState => {
-    timer.resume();
-  });
-
-  input.addMapping('Enter', keyState => {
+  input.addMapping('Enter', () => {
     if (bird.killable.dead) {
       window.location.reload();
     }
-
-    if (playerEnv.playerController.score > WIN) {
-      window.location.href = "win.html"
-    }
   });
 
-  input.addMapping('Escape', keyState => {
+  input.addMapping('Escape', () => {
     if (bird.killable.dead) {
       window.location.href = "index.html";
     }
-  });
-
-  return input;
-}
-
-export function setupBeginKey() {
-  const input = new Keyboard();
-
-  input.addMapping('Space', keyState => {
-    window.location.href = 'game.html';
   });
 
   return input;

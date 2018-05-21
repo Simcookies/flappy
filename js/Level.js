@@ -12,9 +12,9 @@ export default class Level {
     this.comp = new Compositor();
     this.tiles = new Matrix();
     if (size == 's') {
-      this.gravity = 250;
+      this.gravity = 200;
     } else if (size == 'l') {
-      this.gravity = 550;
+      this.gravity = 600;
     } else {
       this.gravity = 400;
     }

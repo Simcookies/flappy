@@ -7,6 +7,7 @@ import {loadEntities} from './entities.js';
 import {createCameraLayer} from './layers/camera.js';
 import {createCollisionLayer} from './layers/collision.js';
 import {createDashboardLayer} from './layers/dashboard.js';
+import {createMessageLayer} from './layers/message.js';
 import {setupKeyboard} from './input.js';
 import {setupMouseControl} from './debug.js';
 import {createLevelLoader} from './loaders/level.js';
@@ -49,9 +50,10 @@ async function main(canvas) {
   // );
 
   level.comp.layers.push(createDashboardLayer(font, playerEnv));
-
-  const timer = new Timer(1/60,bird);
-  const input = setupKeyboard(playerEnv, timer);
+  const timer = new Timer(1/60, level);
+  // this layer has to be last one
+  level.comp.layers.push(createMessageLayer(font, timer, playerEnv));
+  const input = setupKeyboard(playerEnv, timer, level);
   input.listenTo(window);
 
   timer.update = function update(deltaTime) {
@@ -61,17 +63,14 @@ async function main(canvas) {
   };
 
   document.addEventListener('birdDead', e => {
-    timer.pause();
-    level.musics.backgroundMusic.pause();
+    timer.stop();
   });
 
   document.addEventListener('birdWin', e => {
-    timer.pause();
-    level.musics.backgroundMusic.pause();
+    timer.stop();
   });
 
-  timer.start();
-  level.musics.backgroundMusic.play();
+  timer.getReady();
 }
 
 window.onload = function() {
