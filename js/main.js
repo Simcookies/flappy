@@ -72,23 +72,13 @@ async function main(canvas, musics) {
   return timer;
 }
 
-if(window.location.href.indexOf('https:') > -1){
-  window.onload = startLoadMusic;
-}
-else{
-  window.onclick = function(){
-    startLoadMusic('once');
-  }
-}
-
 const startLoadMusic = function(once=0) {
   if(once){
-
     window.onclick = function(){
       return false;
     }
-
   }
+
   loadMusic().then((musics) => {
     const canvas = document.getElementById('screen');
     return main(canvas, musics);
@@ -96,4 +86,12 @@ const startLoadMusic = function(once=0) {
   .then((timer) => {
     timer.getReady();
   });
+}
+
+if (window.location.href.indexOf('https:') > -1) {
+  window.onload = startLoadMusic;
+} else {
+  window.onclick = function(){
+    startLoadMusic('once');
+  }
 }
