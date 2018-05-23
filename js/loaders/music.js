@@ -6,15 +6,17 @@ export function loadMusic() {
     loadAudio('./audio/got-point.wav'),
     loadAudio('./audio/jumping-sfx.wav'),
     loadAudio('./audio/pause.wav'),
-    loadAudio('./audio/game-over.wav')
-  ]).then(([backgroundMusic, gotPoint, jumping, pause, gameOver])=> {
+    loadAudio('./audio/game-over.wav'),
+    loadAudio('./audio/crash.wav')
+  ]).then(([backgroundMusic, gotPoint, jumping, pause, gameOver, crash])=> {
     backgroundMusic.loop = true;
     const audios = {
       backgroundMusic: backgroundMusic,
       gotPoint: gotPoint,
       jumping: jumping,
       pause: pause,
-      gameOver: gameOver
+      gameOver: gameOver,
+      crash: crash
     }
     return audios;
   });

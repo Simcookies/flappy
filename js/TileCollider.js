@@ -20,9 +20,17 @@ export default class TileCollider {
       entity.bounds.top, entity.bounds.bottom
     );
 
+    if (matches.length === 0) { return; }
     matches.forEach(match => {
-      if (match.tile.type !== 'ground') {
-        return;
+      if (entity.controllable) {
+        if (match.tile.type !== 'ground' &&
+            match.tile.type !== 'pipe') {
+          return;
+        }
+      } else {
+        if (match.tile.type !== 'ground') {
+          return;
+        }
       }
       if (entity.vel.x > 0) {
         if (entity.bounds.right > match.x1) {
@@ -50,9 +58,17 @@ export default class TileCollider {
       y, y
     );
 
+    if (matches.length === 0) { return; }
     matches.forEach(match => {
-      if (match.tile.type !== 'ground') {
-        return;
+      if (entity.controllable) {
+        if (match.tile.type !== 'ground' &&
+            match.tile.type !== 'pipe') {
+          return;
+        }
+      } else {
+        if (match.tile.type !== 'ground') {
+          return;
+        }
       }
       if (entity.vel.y > 0) {
         if (entity.bounds.bottom > match.y1) {

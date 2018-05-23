@@ -37,14 +37,14 @@
       "tiles": [
         {
           "name": "pipe-insert-vert-left",
-          "type": "ground",
+          "type": "pipe",
           "ranges": [
             [0, 0]
           ]
         },
         {
           "name": "pipe-insert-vert-right",
-          "type": "ground",
+          "type": "pipe",
           "ranges": [
             [1,0]
           ]
@@ -56,14 +56,14 @@
       "tiles": [
         {
           "name": "pipe-insert-vert-left-mirror",
-          "type": "ground",
+          "type": "pipe",
           "ranges": [
             [0, 2]
           ]
         },
         {
           "name": "pipe-insert-vert-right-mirror",
-          "type": "ground",
+          "type": "pipe",
           "ranges": [
             [1,2]
           ]
@@ -75,14 +75,14 @@
       "tiles": [
         {
           "name": "pipe-vert-left",
-          "type": "ground",
+          "type": "pipe",
           "ranges": [
             [0,1]
           ]
         },
         {
           "name": "pipe-vert-right",
-          "type": "ground",
+          "type": "pipe",
           "ranges": [
             [1,1]
           ]

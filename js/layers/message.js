@@ -10,7 +10,7 @@ export function createMessageLayer(font, timer, playerEnv) {
 
     if (timer.state.status === Status.READY) {
       font.printLines('The chick was lost in city.\n' +
-      'Help him return back home.\n' +
+      'Help him return home.\n' +
       'But please pay attention to\n' +
       'the PIPES.', context, 16, LINE1);
       font.printLines('Press SPACE to start game and\n' +
@@ -23,18 +23,15 @@ export function createMessageLayer(font, timer, playerEnv) {
     if (player.killable.dead) {
       if (player.SIZE == 'l') {
         font.printLines('Oh! You failed!\nYou are too fat!\nYou need more training!\
-          \nPress Enter to player again,\
-           Esc to return.',
+          \nPress Enter to player again.',
           context, 16, 80);
       } else if (player.SIZE == 'm') {
         font.printLines('Oh! You failed!\nGet used to control the chick.\
-          \nPress Enter to player again,\
-          \nEsc to return.',
+          \nPress Enter to player again.',
           context, 16, 80);
       } else if (player.SIZE == 's') {
         font.printLines('Oh! You failed!\nYou are too slim!\nMaybe you need to eat more!\
-          \nPress Enter to player again,\
-          \nEsc to return.',
+          \nPress Enter to player again.',
           context, 16, 80);
       }
     }

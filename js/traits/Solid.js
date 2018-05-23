@@ -24,6 +24,13 @@ export default class Solid extends Trait {
       entity.bounds.right = match.x1;
       entity.vel.x = 0;
     }
-    entity.killable.kill();
+
+    if (match.tile.type === 'ground') {
+      entity.killable.kill();
+    } else if (match.tile.type === 'pipe') {
+      entity.vel.x = 0;
+      entity.vel.y = 0;
+      entity.killable.hit();
+    }
   }
 }

@@ -3,7 +3,7 @@ import {Vec2} from '../math.js';
 import {PIPE_RANGES} from '../pipeGenerate.js';
 
 const eventWin = new Event('birdWin');
-export const WIN = 15;
+export const WIN = PIPE_RANGES.length;
 
 export default class PlayerController extends Trait {
   constructor() {

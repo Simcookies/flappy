@@ -69,13 +69,31 @@ async function main(canvas, musics) {
   document.addEventListener('birdWin', e => {
     timer.stop();
   });
-
-  timer.getReady();
+  return timer;
 }
 
-window.onload = function() {
+if(window.location.href.indexOf('https:') > -1){
+  window.onload = startLoadMusic;
+}
+else{
+  window.onclick = function(){
+    startLoadMusic('once');
+  }
+}
+
+const startLoadMusic = function(once=0) {
+  if(once){
+
+    window.onclick = function(){
+      return false;
+    }
+
+  }
   loadMusic().then((musics) => {
     const canvas = document.getElementById('screen');
-    main(canvas, musics);
+    return main(canvas, musics);
+  })
+  .then((timer) => {
+    timer.getReady();
   });
 }

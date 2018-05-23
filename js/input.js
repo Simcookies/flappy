@@ -6,6 +6,7 @@ export function setupKeyboard(playerEnv, timer, level) {
   const bird = playerEnv.playerController.player;
 
   input.addMapping('Space', () => {
+    if (!bird.controllable) { return; }
     if (timer.state.status === Status.READY) {
       timer.start();
     }
@@ -25,12 +26,6 @@ export function setupKeyboard(playerEnv, timer, level) {
   input.addMapping('Enter', () => {
     if (bird.killable.dead) {
       window.location.reload();
-    }
-  });
-
-  input.addMapping('Escape', () => {
-    if (bird.killable.dead) {
-      window.location.href = "index.html";
     }
   });
 

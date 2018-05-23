@@ -16,26 +16,26 @@ export function pipeGenerate() {
     for (let index = 0; index <= edgeUp; index++) {
       rangesVert.push([x, index]);
     }
-    for (let index = edgeDown; index <= 16; index++) {
+    for (let index = edgeDown; index <= 15; index++) {
       rangesVert.push([x, index]);
     }
   }
 
   const tileDown = {
     pattern: "pipe-insert",
-    type: "ground",
+    type: "pipe",
     ranges: rangesDown
   };
 
   const tileUp = {
     pattern: "pipe-insert-mirror",
-    type: "ground",
+    type: "pipe",
     ranges: rangesUp
   };
 
   const tileVert = {
     pattern: "pipe-vert",
-    type: "ground",
+    type: "pipe",
     ranges: rangesVert
   };
 

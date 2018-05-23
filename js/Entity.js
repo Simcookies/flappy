@@ -29,6 +29,7 @@ export default class Entity {
 
     this.bounds = new BoundingBox(this.pos, this.size);
     this.traits = [];
+    this.controllable = true;
   }
 
   addTrait(trait) {
