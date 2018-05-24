@@ -16,6 +16,7 @@ export default class Killable extends Trait {
   kill() {
     this.dead = true;
     this.killed = true;
+    this.crashed = false;
   }
 
   hit() {
@@ -24,11 +25,13 @@ export default class Killable extends Trait {
 
   revive() {
     this.dead = false;
+    this.crashed = false;
+    this.killed = false;
     this.deadTime = 0;
   }
 
   update(entity, deltaTime, level) {
-    if (entity.killable.dead) {
+    if (this.dead) {
       this.deadTime += deltaTime;
       if (this.deadTime > this.removeAfter) {
         level.entities.delete(entity);
@@ -36,7 +39,7 @@ export default class Killable extends Trait {
       }
     }
 
-    if (entity.killable.crashed) {
+    if (this.crashed) {
       if (!this.musicPlayed) {
         level.musics.crash.play();
         this.musicPlayed = true;
