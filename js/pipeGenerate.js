@@ -5,7 +5,7 @@ export function pipeGenerate() {
   const rangesUp = [];
   const rangesVert = [];
 
-  for (let x = 15; x < 200; x += 9) {
+  for (let x = 15; x < 100; x += 9) {
     PIPE_RANGES.push(x);
 
     const edgeUp = 2 + Math.floor(Math.random() * 4);

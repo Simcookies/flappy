@@ -53,7 +53,7 @@ async function main(canvas, musics) {
   input.listenTo(window);
 
   level.comp.layers.push(createDashboardLayer(font, playerEnv));
-  level.comp.layers.push(createMessageLayer(font, timer, playerEnv));
+  level.comp.layers.push(createMessageLayer(font, timer, playerEnv, level));
 
   timer.update = function update(deltaTime) {
     level.update(deltaTime);

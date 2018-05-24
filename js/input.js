@@ -25,7 +25,7 @@ export function setupKeyboard(playerEnv, timer, level) {
 
   input.addMapping('Enter', () => {
     if (bird.killable.dead) {
-      window.location.reload();
+      timer.resume();
     }
   });
 

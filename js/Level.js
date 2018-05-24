@@ -21,6 +21,8 @@ export default class Level {
 
     this.tileCollider = null;
     this.entitiesCollisder = new EntityCollider(this.entities);
+    this.pipeRanges = [];
+    this.WIN = 0;
   }
 
   setCollosionGrid(matrix) {

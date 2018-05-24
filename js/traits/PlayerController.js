@@ -3,7 +3,6 @@ import {Vec2} from '../math.js';
 import {PIPE_RANGES} from '../pipeGenerate.js';
 
 const eventWin = new Event('birdWin');
-export const WIN = PIPE_RANGES.length;
 
 export default class PlayerController extends Trait {
   constructor() {
@@ -26,13 +25,13 @@ export default class PlayerController extends Trait {
       level.entities.add(this.player);
     } else {
       this.time -= deltaTime * 2;
-      if(this.player.pos.x > PIPE_RANGES[0] * 16 + 32) {
+      if(this.player.pos.x > level.pipeRanges[0] * 16 + 32) {
         this.score++;
         level.musics.gotPoint.play();
-        PIPE_RANGES.shift();
+        level.pipeRanges.shift();
       }
 
-      if (this.score > WIN) {
+      if (this.score >= level.WIN) {
         document.dispatchEvent(eventWin);
       }
     }

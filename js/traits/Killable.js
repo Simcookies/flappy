@@ -9,11 +9,13 @@ export default class Killable extends Trait {
     this.deadTime = 0;
     this.removeAfter = 0.1;
     this.crashed = false;
+    this.killed = false;
     this.musicPlayed = false;
   }
 
   kill() {
     this.dead = true;
+    this.killed = true;
   }
 
   hit() {
@@ -40,6 +42,10 @@ export default class Killable extends Trait {
         this.musicPlayed = true;
       }
       entity.controllable = false;
+    }
+
+    if (this.killed) {
+      entity.controllable = true;
     }
   }
 }

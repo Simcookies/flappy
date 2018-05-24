@@ -3,7 +3,7 @@ import {createBackgroundLayer, createPipeLayer} from '../layers/background.js'
 import {loadJSON, loadSpriteSheet} from '../loaders.js';
 import Level from '../Level.js';
 import {Matrix} from '../math.js';
-import {pipeGenerate} from '../pipeGenerate.js';
+import {pipeGenerate, PIPE_RANGES} from '../pipeGenerate.js';
 
 function setupCollision(levelSpec, level) {
   // mergedTiles: includes all tiles from level.
@@ -47,6 +47,8 @@ export function createLevelLoader(entityFactory) {
       // backgroundSprites: JSON format for background sprites;
       const level = new Level();
       levelSpec.layers.push(pipeGenerate());
+      level.pipeRanges = PIPE_RANGES.slice(0);
+      level.WIN = PIPE_RANGES.length;
       setupCollision(levelSpec, level);
       setupBackgrounds(levelSpec, level, backgroundSprites);
       setupEntities(levelSpec, level, entityFactory)

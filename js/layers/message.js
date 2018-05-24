@@ -1,7 +1,6 @@
 import {Status} from '../Timer.js';
-import {WIN} from '../traits/PlayerController.js';
 
-export function createMessageLayer(font, timer, playerEnv) {
+export function createMessageLayer(font, timer, playerEnv, level) {
   const LINE1 = 40;
   const LINE2 = 115;
 
@@ -36,7 +35,7 @@ export function createMessageLayer(font, timer, playerEnv) {
       }
     }
 
-    if (score > WIN) {
+    if (score >= level.WIN) {
       font.printLines('Congratulations! You won!\n' +
       'The chick comes back home,\n' +
       'and so many chicks are\n' +
