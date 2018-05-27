@@ -2,7 +2,7 @@ import Entity from './Entity.js';
 import PlayerController from './traits/PlayerController.js';
 import Level from './Level.js';
 import Camera from './Camera.js';
-import Timer from './Timer.js';
+import Timer, {Status} from './Timer.js';
 import {loadEntities} from './entities.js';
 import {createCameraLayer} from './layers/camera.js';
 import {createCollisionLayer} from './layers/collision.js';
@@ -72,26 +72,10 @@ async function main(canvas, musics) {
   return timer;
 }
 
-const startLoadMusic = function(once=0) {
-  if(once){
-    window.onclick = function(){
-      return false;
-    }
-  }
-
-  loadMusic().then((musics) => {
-    const canvas = document.getElementById('screen');
-    return main(canvas, musics);
-  })
-  .then((timer) => {
-    timer.getReady();
-  });
-}
-
-if (window.location.href.indexOf('https:') > -1) {
-  window.onload = startLoadMusic;
-} else {
-  window.onclick = function(){
-    startLoadMusic('once');
-  }
-}
+loadMusic().then((musics) => {
+  const canvas = document.getElementById('screen');
+  return main(canvas, musics);
+})
+.then((timer) => {
+  timer.getReady();
+});

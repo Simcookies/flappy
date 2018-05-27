@@ -2,7 +2,8 @@ export const Status = {
   READY: Symbol('ready'),
   RUNNING: Symbol('running'),
   STOPED: Symbol('stoped'),
-  PAUSED: Symbol('paused')
+  PAUSED: Symbol('paused'),
+  NONE: Symbol('none')
 }
 
 const Actions = {
@@ -14,7 +15,7 @@ const Actions = {
 }
 
 class State {
-  constructor(status = Status.READY, action = Actions.NONE) {
+  constructor(status = Status.NONE, action = Actions.NONE) {
     this.setStatus(status);
     this.setAction(action);
   }
@@ -67,13 +68,13 @@ export default class Timer {
   }
 
   getReady() {
-    this.update(this.deltaTime);
-    this.musics.backgroundMusic.play();
     this.state.setStatus(Status.READY);
+    this.update(this.deltaTime);
   }
 
   start() {
     this.state.set(Status.RUNNING, Actions.STARTED);
+    this.musics.backgroundMusic.play();
     this.enqueue();
   }
 
