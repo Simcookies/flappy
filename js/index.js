@@ -1,4 +1,4 @@
-import {loadImage, loadSpriteSheet} from './loaders.js';
+import {loadImage, loadSpriteSheet, loadAudio} from './loaders.js';
 import {loadFont} from './loaders/font.js';
 import {loadGame} from './main.js';
 
@@ -11,9 +11,11 @@ Promise.all([
   loadImage('./img/index_background.png'),
   loadImage('./img/monster.png'),
   loadSpriteSheet('bird'),
-  loadFont()
+  loadFont(),
+  loadAudio('./audio/indexBG.wav'),
+  loadAudio('./audio/angry.wav')
 ])
-.then(([backImage, monster, sprite, font]) => {
+.then(([backImage, monster, sprite, font, indexBG, angrayWav]) => {
   const buffer = document.createElement('canvas');
   buffer.width = SCREEN_WIDTH;
   buffer.height = SCREEN_HEIGHT;
@@ -45,6 +47,7 @@ Promise.all([
   document.addEventListener('firstEnd', (ev) => {
     let positionX = 20;
     let positionY = 100;
+    indexBG.play();
     (function updateChick() {
       context.drawImage(backImage, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
       context.drawImage(monster, SCREEN_WIDTH - 100, SCREEN_HEIGHT - 100, 100, 100);
@@ -63,6 +66,7 @@ Promise.all([
     let size = 100;
     let positionX = SCREEN_WIDTH - size;
     let positionY = SCREEN_HEIGHT - size;
+    angrayWav.play();
     (function updateChickFly() {
       context.drawImage(backImage, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
       context.drawImage(monster, positionX, positionY, size++, size++);
