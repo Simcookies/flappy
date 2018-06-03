@@ -127,4 +127,13 @@ Promise.all([
 
     setTimeout(loadGame, 6000);
   });
+
+  document.addEventListener('gameWin', (ev) => {
+    indexBG.play();
+    for (let i = 0; i < 10; i++) {
+      let positionX = Math.floor(Math.random() * SCREEN_WIDTH);
+      let positionY = Math.floor(Math.random() * SCREEN_HEIGHT);
+      sprite.draw('idle-l', context, positionX, positionY);
+    }
+  });
 });

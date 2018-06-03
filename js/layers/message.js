@@ -38,6 +38,7 @@ export function createMessageLayer(font, timer, playerEnv, level) {
       'You came back home, and your\n' +
       'friends ara all happy to see\n' +
       'you!', context, 30, 80);
+      document.dispatchEvent(new Event('gameWin'));
     }
   };
 }
