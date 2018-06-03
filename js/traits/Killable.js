@@ -1,4 +1,5 @@
 import {Trait, Sides} from '../Entity.js';
+import {PIPE_RANGES} from '../pipeGenerate.js';
 
 const eventDead = new Event('birdDead');
 
@@ -35,6 +36,7 @@ export default class Killable extends Trait {
       this.deadTime += deltaTime;
       if (this.deadTime > this.removeAfter) {
         level.entities.delete(entity);
+        level.pipeRanges = PIPE_RANGES.slice(0);
         document.dispatchEvent(eventDead);
       }
     }
@@ -49,6 +51,7 @@ export default class Killable extends Trait {
 
     if (this.killed) {
       entity.controllable = true;
+      this.musicPlayed = false;
     }
   }
 }

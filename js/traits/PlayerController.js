@@ -21,6 +21,7 @@ export default class PlayerController extends Trait {
     if (!level.entities.has(this.player)) {
       this.player.killable.revive();
       this.player.vel.x = 60;
+      this.score = 0;
       this.player.pos.set(this.checkpoint.x, this.checkpoint.y);
       level.entities.add(this.player);
     } else {
