@@ -72,10 +72,12 @@ async function main(canvas, musics) {
   return timer;
 }
 
-loadMusic().then((musics) => {
-  const canvas = document.getElementById('screen');
-  return main(canvas, musics);
-})
-.then((timer) => {
-  timer.getReady();
-});
+export function loadGame() {
+  loadMusic().then((musics) => {
+    const canvas = document.getElementById('screen');
+    return main(canvas, musics);
+  })
+  .then((timer) => {
+    timer.getReady();
+  });
+}

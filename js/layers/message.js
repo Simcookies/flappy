@@ -9,7 +9,7 @@ export function createMessageLayer(font, timer, playerEnv, level) {
 
     if (timer.state.status === Status.READY) {
       font.printLines('You ara a chick, and you are\n' +
-      'lost in city. Return home.\n' +
+      'closed by Monster. Run away home.\n' +
       'But please watch out for\n' +
       'the PIPES.', context, 16, LINE1);
       font.printLines('Press SPACE to start game and fly.', context, 10, LINE2);
