@@ -23,7 +23,7 @@ Promise.all([
 
   let y = 16;
   [
-    'Monster can not finished his',
+    'Monster can not finish his',
     'homework. So he is very angry',
     'now. His classmate, small chick,',
     'is going through him happily.'
