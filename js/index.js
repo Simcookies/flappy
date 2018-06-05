@@ -23,10 +23,11 @@ Promise.all([
 
   let y = 16;
   [
-    'Monster can not finish his',
-    'homework. So he is very angry',
-    'now. His classmate, small chick,',
-    'is going through him happily.'
+    'You are a small chick, your',
+    'classmate, the monster, cannot',
+    'finish his homework. So he is',
+    'very angry now. But you are',
+    'flying by him happily.'
   ].forEach(text => {
     font.print(text, bufferContext, 20, y);
     y += 20;
@@ -97,7 +98,7 @@ Promise.all([
       context.putImageData(imgData, 0, 0);
       let y = 36;
       [
-        'Monster becomes angrier!',
+        'The monster gets angrier!',
         'Monster: "You will be punished!',
         'You can not leave until I ',
         'forgive you!"'
@@ -117,9 +118,9 @@ Promise.all([
   document.addEventListener('subLoaded', (ev) => {
     let y = 150;
     [
-      'The small chick was closed by',
-      'Monster. However, he found a',
-      'exit. Can he return home?'
+      'You are captured by the monster.',
+      'However, you found a way out.',
+      'But can you find your way home?'
     ].forEach(text => {
       font.print(text, context, 20, y);
       y += 20;
